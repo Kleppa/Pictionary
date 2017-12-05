@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="814c0383-f8c1-4faa-8510-d779cc3e1995" name="Default" comment="    Added required username to start game">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/no/kleppa/Pictionary/README.MD" afterPath="$PROJECT_DIR$/README.MD" />
+    <list default="true" id="814c0383-f8c1-4faa-8510-d779cc3e1995" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.MD" afterPath="$PROJECT_DIR$/README.MD" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,7 +30,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.MD" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.MD" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.MD">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -62,7 +62,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/no/kleppa/Pictionary/App.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="467">
@@ -130,6 +130,7 @@
         <option value="$PROJECT_DIR$/src/main/java/no/kleppa/Pictionary/GameMaster.java" />
         <option value="$PROJECT_DIR$/src/main/java/no/kleppa/Pictionary/ClientThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/no/kleppa/Pictionary/App.java" />
+        <option value="$PROJECT_DIR$/README.MD" />
       </list>
     </option>
   </component>
@@ -408,11 +409,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512493863492</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added readme">
+      <created>1512495432603</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1512495432603</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19977000" />
+    <option name="totallyTimeSpent" value="20065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1277" height="708" extended-state="0" />
@@ -479,7 +487,8 @@
     <MESSAGE value="Reset canvas now possible" />
     <MESSAGE value="Added userlist to gui" />
     <MESSAGE value="Added required username to start game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added required username to start game" />
+    <MESSAGE value="Added readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -705,17 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.MD">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="30">
-            <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/no/kleppa/Pictionary/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -751,6 +749,17 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.MD">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="30">
+            <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
