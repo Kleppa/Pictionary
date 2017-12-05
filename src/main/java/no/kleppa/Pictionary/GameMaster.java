@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
@@ -23,6 +24,7 @@ public class GameMaster {
 	private final String pictureAnswer="No answer";
 	BorderPane rootPane=new BorderPane();
 	private List<Label> listofUserLabels;
+	private TextArea chatBox;
 
 	public GameMaster() {
 		setUpRootPane();
@@ -44,11 +46,11 @@ public class GameMaster {
 						new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)
 				)
 		);
-		HBox hboxBot=new HBox(150);
+		HBox hboxBot=new HBox(900);
 		Button resetButton= new Button();
 		resetButton.setText("Reset Canvas");
 		resetCanvas(resetButton,gc,canvas);
-
+		//bottom part ////////
 		TextField textfieldGuessDrawing = new TextField();
 		textfieldGuessDrawing.setPromptText("Guess the Drawing!");
 		textfieldGuessDrawingOnEnterSetup(textfieldGuessDrawing);
@@ -56,7 +58,7 @@ public class GameMaster {
 		hboxBot.getChildren().add(textfieldGuessDrawing);
 		createSomeUsers();
 		listofUserLabels= createLabelList();
-
+////////left side part.......
 		VBox userBox = new VBox(1);
 
 		userBox.getChildren().add(new Label("Users : "));
@@ -64,10 +66,18 @@ public class GameMaster {
 
 		rootPane.setLeft(userBox);
 		rootPane.setBottom(hboxBot);
+		chatBox = new TextArea();
+		chatBox.setDisable(true);
+		chatBox.setText("TEST\n"+"test2");
 
+
+		chatBox.setPrefHeight(20);
+		chatBox.setPrefWidth(300);
+		subPane.setRight(chatBox);
 		subPane.setCenter(canvas);
 		rootPane.setBackground(new Background(new BackgroundFill(Color.SLATEGREY, CornerRadii.EMPTY, Insets.EMPTY)));
 		rootPane.setCenter(subPane);
+
 
 	}
 
@@ -83,12 +93,15 @@ public class GameMaster {
 		textField.setOnKeyPressed(event -> {
 			if(event.getCode() == KeyCode.ENTER){
 				guessedAnswer=textField.getText();
-				System.out.println("gussedAnswer > " + guessedAnswer + " print in textfieldGuessDrawingOnenter method");
+				System.out.println("guessedAnswer > " + guessedAnswer + " print in textfieldGuessDrawingOnenter method");
 				textField.clear();
 
 				if (checkIfGuessIsAnswer(guessedAnswer)){
 					//Todo Present victory, change user to draw
 
+				}else {
+					String textToBeDisplayed = chatBox.getText() + "\n" + guessedAnswer;
+					chatBox.setText(textToBeDisplayed);
 				}
 			}
 		});

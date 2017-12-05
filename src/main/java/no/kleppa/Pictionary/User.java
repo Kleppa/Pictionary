@@ -1,8 +1,8 @@
 package no.kleppa.Pictionary;
 
 public class User {
-	private String name;
-	private int score;
+	private final String name;
+	private final int score;
 
 	public User(String name) {
 		this.name = name;
@@ -23,5 +23,8 @@ public class User {
 	}
 	public User updateScoreFirstPlace(){
 		return new User(name,score+50);
+	}
+	public User updateScore(){
+		return new User(name,score+25);
 	}
 }
