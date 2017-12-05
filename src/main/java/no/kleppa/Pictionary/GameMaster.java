@@ -4,7 +4,9 @@ package no.kleppa.Pictionary;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.control.Button;
@@ -12,15 +14,23 @@ import javafx.scene.control.Button;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameMaster {
+	private List<User> listOfUser =new ArrayList();
+	private String guessedAnswer;
+	private final String pictureAnswer="No answer";
 	BorderPane rootPane=new BorderPane();
+	private List<Label> listofUserLabels;
+
 	public GameMaster() {
 		setUpRootPane();
 	}
 
 	private void setUpRootPane() {
 		BorderPane subPane= new BorderPane();
-		Canvas canvas = new Canvas(400,500);
+		Canvas canvas = new Canvas(600,600);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.setFill(Color.WHITE);
 		gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -34,21 +44,59 @@ public class GameMaster {
 						new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)
 				)
 		);
-		HBox hboxBot=new HBox(3);
+		HBox hboxBot=new HBox(150);
 		Button resetButton= new Button();
 		resetButton.setText("Reset Canvas");
 		resetCanvas(resetButton,gc,canvas);
 
 		TextField textfieldGuessDrawing = new TextField();
-		textfieldGuessDrawing.setText("Guess what the person is drawing here!");
+		textfieldGuessDrawing.setPromptText("Guess the Drawing!");
+		textfieldGuessDrawingOnEnterSetup(textfieldGuessDrawing);
 		hboxBot.getChildren().add(resetButton);
 		hboxBot.getChildren().add(textfieldGuessDrawing);
+		createSomeUsers();
+		listofUserLabels= createLabelList();
 
+		VBox userBox = new VBox(1);
+
+		userBox.getChildren().add(new Label("Users : "));
+		listofUserLabels.forEach(label -> userBox.getChildren().add(label));
+
+		rootPane.setLeft(userBox);
 		rootPane.setBottom(hboxBot);
+
 		subPane.setCenter(canvas);
 		rootPane.setBackground(new Background(new BackgroundFill(Color.SLATEGREY, CornerRadii.EMPTY, Insets.EMPTY)));
 		rootPane.setCenter(subPane);
 
+	}
+
+	private ArrayList<Label> createLabelList() {
+		ArrayList<Label> tmpList= new ArrayList<>();
+		for (User u :listOfUser) {
+			tmpList.add(new Label(u.getName()+" score - "+ u.getScore()));
+		}
+		return tmpList;
+	}
+
+	private void textfieldGuessDrawingOnEnterSetup(TextField textField) {
+		textField.setOnKeyPressed(event -> {
+			if(event.getCode() == KeyCode.ENTER){
+				guessedAnswer=textField.getText();
+				System.out.println("gussedAnswer > " + guessedAnswer + " print in textfieldGuessDrawingOnenter method");
+				textField.clear();
+
+				if (checkIfGuessIsAnswer(guessedAnswer)){
+					//Todo Present victory, change user to draw
+
+				}
+			}
+		});
+	}
+
+	private boolean checkIfGuessIsAnswer(String guessedAnswer) {
+		if (!guessedAnswer.equalsIgnoreCase(pictureAnswer)) return false;
+		return true;
 	}
 
 	private void canvasFunctionality(Canvas canvas, GraphicsContext gc) {
@@ -70,6 +118,17 @@ public class GameMaster {
 
 	public Parent getRootPane() {
 		return rootPane;
+	}
+	public void correctGuess(){
+
+	}
+	public void scoreBoard(){
+
+	}
+	private void createSomeUsers(){
+		for (int i = 0; i <6 ; i++) {
+			listOfUser.add(new User("asdf"));
+		}
 	}
 
 }

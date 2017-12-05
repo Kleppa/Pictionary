@@ -38,7 +38,7 @@ public class App extends Application implements EventHandler<ActionEvent> {
 
 		StackPane layout =new StackPane();
 		layout.getChildren().add(playBtn);
-		scene[0] = new Scene(layout,400,500);
+		scene[0] = new Scene(layout,800,800);
 
 		primaryStage.setScene(scene[0]);
 		primaryStage.show();
