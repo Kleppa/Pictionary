@@ -4,6 +4,7 @@ package no.kleppa.Pictionary;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.control.Button;
@@ -33,10 +34,17 @@ public class GameMaster {
 						new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)
 				)
 		);
+		HBox hboxBot=new HBox(3);
 		Button resetButton= new Button();
 		resetButton.setText("Reset Canvas");
 		resetCanvas(resetButton,gc,canvas);
-		subPane.setBottom(resetButton);
+
+		TextField textfieldGuessDrawing = new TextField();
+		textfieldGuessDrawing.setText("Guess what the person is drawing here!");
+		hboxBot.getChildren().add(resetButton);
+		hboxBot.getChildren().add(textfieldGuessDrawing);
+
+		rootPane.setBottom(hboxBot);
 		subPane.setCenter(canvas);
 		rootPane.setBackground(new Background(new BackgroundFill(Color.SLATEGREY, CornerRadii.EMPTY, Insets.EMPTY)));
 		rootPane.setCenter(subPane);
@@ -57,10 +65,7 @@ public class GameMaster {
 				});
 	}
 	private void resetCanvas(Button resetButton,GraphicsContext gc, Canvas canvas){
-		resetButton.setOnAction(e->{
-			gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-
-		});
+		resetButton.setOnAction(e-> gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight()));
 	}
 
 	public Parent getRootPane() {
